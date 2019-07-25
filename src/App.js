@@ -26,13 +26,11 @@ upNumberFour = () => this.setState({numbers: Math.min(9, (Number(this.state.numb
 downNumberFour = () => this.setState({numbers: Math.max(0, (Number(this.state.numbers[3])-1)),})
 
 
-changeValue = (number, diff) => {
+changeValue = (index, diff) => {
   this.setState({
-    numbers: this.state.numbers.map(( value, i )=>{
-      if(value === number) {
-        (value += diff);
-      }
-    })
+    numbers: this.state.numbers.map(( value, i )=>
+      (i === index) ? (value + diff +10) % 10 : value
+    )
   })
 }
 
@@ -52,23 +50,23 @@ check = ()=> {
         <Lock opened={this.state.isOpen}/>
         <div className='numbers'>
           <div className='number'>
-            <button className='button' onClick={this.upNumberOne}>up</button>
-            <input className='btncd'type='button' value={this.state.numbers[0]} />
-            <button className='button' onClick={this.downNumberOne}>dn</button>
+            <button className='button' onClick={()=> this.changeValue(0, 1)}>up</button>
+            <span className='btncd'>{this.state.numbers[0]}</span>
+            <button className='button' onClick={()=> this.changeValue(0, -1)}>dn</button>
           </div>
           <div className='number'>
             <button className='button' onClick={this.upNumberTwo}>up</button>
-            <input className='btncd'type='button' value={this.state.numbers[1]} />
+            <span className='btncd'>{this.state.numbers[1]}</span>
             <button className='button' onClick={this.downNumberTwo}>dn</button>
           </div>
           <div className='number'>
             <button className='button' onClick={this.upNumberThree}>up</button>
-            <input className='btncd'type='button' value={this.state.numbers[2]} />
+            <span className='btncd'>{this.state.numbers[2]}</span>
             <button className='button' onClick={this.downNumberThree}>dn</button>
           </div>
           <div className='number'>
             <button className='button' onClick={this.upNumberFour}>up</button>
-            <input className='btncd'type='button' value={this.state.numbers[3]} />
+            <span className='btncd'>{this.state.numbers[3]}</span>
             <button className='button' onClick={this.downNumberFour}>dn</button>
           </div>
         </div>
