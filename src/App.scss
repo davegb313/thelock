@@ -1,72 +1,96 @@
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 
-  .Lock {
-    height: 30vh;
+  .chooseLock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    span, p {
+      font-size: 2rem;
+    }
+
+    button {
+      border-radius:16px;
+      cursor:pointer;
+      font-family:Courier New;
+      font-size:20px;
+      text-decoration:none;
+      outline: none;
+      background-color:#000;
+      color:#ffffff;
+      padding:20px 20px;
+    }
   }
 
   h1 {
     font-size: 5.5rem;
   }
 
-  .numbers {
+  .theLock  {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 
-    .number {
+    .Lock {
+      height: 30vh;
+    }
+
+    .numbers {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
 
-      .button {
-      	background-color:#020302;
-      	border-radius:16px;
-      	display:inline-block;
-      	cursor:pointer;
-      	color:#ffffff;
-      	font-family:Courier New;
-      	font-size:20px;
-      	padding:20px 11px;
-      	text-decoration:none;
-        outline: none;
+      .number {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        &:hover {
-          background-color:#000000;
-        }
-        &:active {
-          position:relative;
-        	top:1px;
-        }
-        }
-        .btncd {
-        	background-color:#ffffff;
+        .changeButtons,
+        .codes {
         	border-radius:16px;
-        	border:2px solid #000000;
         	display:inline-block;
         	cursor:pointer;
-        	color:#000000;
-        	font-family:Courier New;
+          font-family:Courier New;
         	font-size:20px;
-        	padding:15px 19px;
-        	text-decoration:none;
+          text-decoration:none;
           outline: none;
+        }
 
-          &:hover {
-            background-color:#ffffff;
-          }
+        .changeButtons {
+        	background-color:#000;
+        	color:#ffffff;
+        	padding:20px 11px;
+
           &:active {
-            position:relative;
+          	top:1px;
+          }
+        }
+        .codes {
+        	background-color:#ffffff;
+        	border:2px solid #000000;
+        	color:#000000;
+        	padding:15px 19px;
+
+          &:active {
           	top:1px;
           }
         }
       }
     }
   }
+}
 
 
-.App .button {
-  background-color:#020302;
+.App .check,
+.App .toTheTop {
+  max-width: 150px;
+  background-color:#000;
   border-radius:16px;
   display:inline-block;
   cursor:pointer;
@@ -77,12 +101,18 @@
   text-decoration:none;
   outline: none;
 
-  &:hover {
-    background-color:#000000;
-  }
-  &:active {
-    position:relative;
+  &:not(.toTheTop):active {
     top:1px;
-    outline: none;
+  }
+}
+
+.App .toTheTop {
+  position: absolute;
+  right: 5vw;
+  bottom: -950px;
+  padding:11px 11px;
+
+  img {
+    height: 40px;
   }
 }
